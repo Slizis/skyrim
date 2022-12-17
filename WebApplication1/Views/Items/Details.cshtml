@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Item
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-5 col-lg-3">
+                <div class="row">
+                    <aside class="col-sm-6 col-md-12 p-4">
+                        <img src="~/img/palka.jpg" class="img-thumbnail" alt="...">
+                    </aside>
+                </div>
+            </div>
+            <main class="col-md-7 col-lg-9 p-4">
+                <h4 class="text-left">
+                    Общие сведения о items
+                </h4>
+
+                Вес: @Html.DisplayFor(model => model.Weight)<br /><br />
+                Хп: @Html.DisplayFor(model => model.Price)<br /><br />
+                Квест: @Html.DisplayFor(model => model.Quest)<br /><br />
+                Игрок: @Html.DisplayFor(model => model.Player_Id)<br /><br />
+            </main>
+        </div>
+    </section>
+</div>
+<div class="mx-auto" style="width: 300px">
+    <a class="btn btn-outline-info" asp-action="Index">Вернуться</a>
+    @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+    {
+        <a class="btn btn-outline-info" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
+    }
+</div>

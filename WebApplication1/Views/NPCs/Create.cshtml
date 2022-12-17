@@ -1,0 +1,53 @@
+﻿@model WebApplication1.NPC
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>NPC</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NPC_name" class="control-label"></label>
+                <input asp-for="NPC_name" class="form-control" />
+                <span asp-validation-for="NPC_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HP" class="control-label"></label>
+                <input asp-for="HP" class="form-control" />
+                <span asp-validation-for="HP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MP" class="control-label"></label>
+                <input asp-for="MP" class="form-control" />
+                <span asp-validation-for="MP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fraction" class="control-label"></label>
+                <input asp-for="Fraction" class="form-control" />
+                <span asp-validation-for="Fraction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biom_Id" class="control-label"></label>
+                <input asp-for="Biom_Id" class="form-control" />
+                <span asp-validation-for="Biom_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

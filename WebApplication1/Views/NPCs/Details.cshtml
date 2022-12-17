@@ -1,0 +1,39 @@
+﻿@model WebApplication1.NPC
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-5 col-lg-3">
+                <div class="row">
+                    <aside class="col-sm-6 col-md-12 p-4">
+                        <img src="~/img/nps.jpeg" class="img-thumbnail" alt="...">
+                    </aside>
+                </div>
+            </div>
+            <main class="col-md-7 col-lg-9 p-4">
+                <h4 class="text-left">
+                    Общие сведения о nps
+                </h4>
+
+                Имя: @Html.DisplayFor(model => model.NPC_name)<br /><br />
+                Хп: @Html.DisplayFor(model => model.HP)<br /><br />
+                Мана пул: @Html.DisplayFor(model => model.MP)<br /><br /> 
+                Фракция: @Html.DisplayFor(model => model.Fraction)<br /><br />
+                Биом: @Html.DisplayFor(model => model.Biom_Id)<br /><br />
+            </main>
+        </div>
+    </section>
+</div>
+<div class="mx-auto" style="width: 300px">
+    <a class="btn btn-outline-info" asp-action="Index">Вернуться</a>
+    @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+    {
+        <a class="btn btn-outline-info" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
+    }
+</div>
